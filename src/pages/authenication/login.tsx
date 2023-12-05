@@ -10,7 +10,7 @@ import axios from "axios";
 import { Message } from "../../components/Message";
 const LoginBoxed = () => {
   const [formData, setFormData] = useState({
-    username: "",
+    eop: "",
     password: "",
   });
   const [message, setMessage] = useState({
@@ -47,15 +47,16 @@ const LoginBoxed = () => {
     setFlag(flag);
   };
   const [flag, setFlag] = useState(themeConfig.locale);
-  const submitForm = (event) => {
+  const submitForm = (event: any) => {
     // navigate('/');
+    console.log("import.meta.env", import.meta.env);
     event.preventDefault();
     setIsLoading(true);
     let data = JSON.stringify(formData);
     let config = {
       method: "post",
       maxBodyLength: Infinity,
-      url: "http://127.0.0.1:3002/auth/login",
+      url: import.meta.env.VITE_HOST + "/auth/login",
       headers: {
         "Content-Type": "application/json",
       },
@@ -67,54 +68,49 @@ const LoginBoxed = () => {
       .then((response) => {
         const success_data = response.data;
         // debugger;
-        if (success_data.message == "LOGIN_SUCCESS"){
-            setMessage({
-                success: true,
-                error: false,
-                message: t('LOGIN_SUCCESS')
-            })
-            document.cookie = 'token='+success_data.data.access_token;
-            localStorage.setItem('token', success_data.data.access_token);
-           
+        if (success_data.message == "LOGIN_SUCCESS") {
+          setMessage({
+            success: true,
+            error: false,
+            message: t("LOGIN_SUCCESS"),
+          });
+          document.cookie = "token=" + success_data.data.access_token;
+          localStorage.setItem("token", success_data.data.access_token);
 
-            let config = {
-              method: 'get',
-              maxBodyLength: Infinity,
-              url: 'http://127.0.0.1:3002/auth/info',
-              headers: { 
-                'Authorization': 'Bearer '+success_data.data.access_token,
-              },
-            };
+          let config = {
+            method: "get",
+            maxBodyLength: Infinity,
+            url: import.meta.env.VITE_HOST + "/auth/info",
+            headers: {
+              Authorization: "Bearer " + success_data.data.access_token,
+            },
+          };
 
-            axios.request(config)
-            .then((response) => {
-              localStorage.setItem('user', JSON.stringify(response.data.data));
-              localStorage.setItem('avatar', response.data.data.avatar);             
-              localStorage.setItem('name', response.data.data.name);
-
-
-            })
+          axios
+            .request(config)
+            .then((response) => {})
             .catch((error) => {
               setIsLoading(false);
               setMessage({
-                  success: false,
-                  error: true,
-                  message: t(error.response.data.message),
-              })
-      
-              console.log(error);            });
+                success: false,
+                error: true,
+                message: t(error.response.data.message),
+              });
 
-            navigate('/');
+              console.log(error);
+            });
+
+          navigate("/");
         }
       })
       .catch((error) => {
-        console.log('error', error)
+        console.log("error", error);
         setIsLoading(false);
         setMessage({
-            success: false,
-            error: true,
-            message: t(error.response.data.message),
-        })
+          success: false,
+          error: true,
+          message: t(error.response.data.message),
+        });
 
         console.log(error);
       });
@@ -130,27 +126,7 @@ const LoginBoxed = () => {
         />
       </div>
 
-      <div className="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/map.png)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16">
-        <img
-          src="/assets/images/auth/coming-soon-object1.png"
-          alt="image"
-          className="absolute left-0 top-1/2 h-full max-h-[893px] -translate-y-1/2"
-        />
-        <img
-          src="/assets/images/auth/coming-soon-object2.png"
-          alt="image"
-          className="absolute left-24 top-0 h-40 md:left-[30%]"
-        />
-        <img
-          src="/assets/images/auth/coming-soon-object3.png"
-          alt="image"
-          className="absolute right-0 top-0 h-[300px]"
-        />
-        <img
-          src="/assets/images/auth/polygon-object.svg"
-          alt="image"
-          className="absolute bottom-0 end-[28%]"
-        />
+      <div className="relative flex min-h-screen items-center justify-center bg-[url(/assets/images/auth/bg-main.jpg)] bg-cover bg-center bg-no-repeat px-6 py-10 dark:bg-[#060818] sm:px-16">
         <div className="relative w-full max-w-[870px] rounded-md bg-[linear-gradient(45deg,#fff9f9_0%,rgba(255,255,255,0)_25%,rgba(255,255,255,0)_75%,_#fff9f9_100%)] p-2 dark:bg-[linear-gradient(52.22deg,#0E1726_0%,rgba(14,23,38,0)_18.66%,rgba(14,23,38,0)_51.04%,rgba(14,23,38,0)_80.07%,#0E1726_100%)]">
           <div className="relative flex flex-col justify-center rounded-md bg-white/60 backdrop-blur-lg dark:bg-black/50 px-6 lg:min-h-[758px] py-20">
             <div className="absolute top-6 end-6">
@@ -229,8 +205,8 @@ const LoginBoxed = () => {
                 <p className="text-base font-bold leading-normal text-white-dark">
                   {t("login_description")}
                 </p>
-                
-                {message.message.length > 0 && <Message message={message}/>}
+
+                {message.message.length > 0 && <Message message={message} />}
               </div>
 
               <form className="space-y-5 dark:text-white" onSubmit={submitForm}>
@@ -240,7 +216,7 @@ const LoginBoxed = () => {
                     <input
                       id="Email"
                       type="email"
-                      name="username"
+                      name="eop"
                       onChange={handleInputChange}
                       placeholder={t("email_placeholder")}
                       className="form-input ps-10 placeholder:text-white-dark"

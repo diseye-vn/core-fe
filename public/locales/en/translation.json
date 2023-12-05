@@ -1,5 +1,5 @@
 {
-    "name": "UMT",
+    "name": "DISEYE",
     "dashboard": "Dashboard",
     "sales": "Sales",
     "analytics": "Analytics",
@@ -107,9 +107,9 @@
     "recover_id_cover": "Recover Id Cover",
     "supports": "Supports",
     "login": "Login",
-    "login_description": "Please using your Microsoft account to login",
+    "login_description": "Please using your account to login",
     "email": "Email",
-    "email_placeholder": "Your email (Ex: binh.2201700002@st.umt.edu.vn)",
+    "email_placeholder": "Your email or password",
     "password": "Password",
     "password_placeholder": "Your Microsoft password",
 
@@ -142,14 +142,15 @@
     "night": "Night",
     "auto_light_night": "Auto",
     "log_out": "Log Out",
-    "sync_calendar": "Sync Calendar",
+    "list_file":"List File",
+    "history_file": "History",
     "event_title": "Details",
      "course_title": "Course",
      "course_from": "From",
      "course_end": "Arrival",
      "course_description": "Description",
      "close": "Close",
-     "copied_link": "Copied link",
-     "calendar_title": "UMT"
+     "copied_link": "Copied link"
+     "upload": "Upload"
 
 }

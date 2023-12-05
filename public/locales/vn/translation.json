@@ -1,5 +1,5 @@
 {
-    "name": "UMT",
+    "name": "DISEYE",
     "dashboard": "Dashboard",
     "sales": "Sales",
     "analytics": "Analytics",
@@ -107,11 +107,11 @@
     "recover_id_cover": "Recover Id Cover",
     "supports": "Supports",
     "login": "Đăng nhập",
-    "login_description": "Vui lòng sử dụng tài khoản Microsoft của bạn để đăng nhập vào hệ thống",
+    "login_description": "Vui lòng sử dụng tài khoản để đăng nhập vào hệ thống",
     "email": "Email",
-    "email_placeholder": "Email của bạn (VD: binh.2201700002@st.umt.edu.vn)",
+    "email_placeholder": "Email của bạn",
     "password": "Mật khẩu",
-    "password_placeholder": "Mật khẩu tài khoản Microsoft của bạn",
+    "password_placeholder": "Mật khẩu",
     "lockscreen": "Lockscreen",
     "password_recovery": "Password Recovery",
     "register": "Register",
@@ -141,14 +141,15 @@
     "night": "Tối",
     "auto_light_night": "Tự động",
     "log_out": "Đăng xuất",
-    "sync_calendar": "Đồng bộ lịch",
+    "list_file":"Danh sách ảnh",
+
+    "history_file": "Lịch sử",
     "event_title": "Chi tiết",
     "course_title": "Môn học",
     "course_from": "Từ",
     "course_end": "Đến",
     "course_description": "Mô tả",
     "close": "Đóng",
+    "upload": "Tải lên"
     
-    "copied_link": "Đã sao chép link",
-    "calendar_title": "Lịch UMT"
 }

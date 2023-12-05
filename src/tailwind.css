@@ -1,5 +1,6 @@
 /* Animate css */
 @import './assets/css/animate.css';
+@import './assets/css/fileupload.css';
 
 @tailwind base;
 @tailwind components;

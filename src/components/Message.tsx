@@ -1,7 +1,18 @@
-export const Message = (props:any) => {
-    console.log('props', props)
+export const Message = (props: any) => {
   return (
-    <div className={`mt-6 flex items-center p-3.5 rounded ${props.message.error && 'text-danger bg-danger-light dark:bg-danger-dark-light'} ${props.message.success && 'text-success bg-success-light dark:bg-success-dark-light'}  ${(!props.message.error & !props.message.success) && 'text-primary bg-primary-light dark:bg-primary-dark-light' }`}>
+    <div
+      className={`mt-6 flex items-center p-3.5 rounded ${
+        props.message.error &&
+        "text-danger bg-danger-light dark:bg-danger-dark-light"
+      } ${
+        props.message.success &&
+        "text-success bg-success-light dark:bg-success-dark-light"
+      }  ${
+        !props.message.error &&
+        !props.message.success &&
+        "text-primary bg-primary-light dark:bg-primary-dark-light"
+      }`}
+    >
       <span className="ltr:pr-2 rtl:pl-2">
         <strong className="ltr:mr-1 rtl:ml-1">{props.message.message}!</strong>
       </span>

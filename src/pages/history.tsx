@@ -90,7 +90,7 @@ const History = () => {
                 accessor: "image",
                 title: "Kết quả",
                 titleClassName: "!text-center",
-                render: (id: { _id: string; result: string }) =>
+                render: (id: { _id: string; result: string; image: string }) =>
                   id.result !== "-" ? (
                     <div className="mx-auto flex w-max items-center">
                       <img

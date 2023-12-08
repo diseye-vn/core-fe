@@ -49,7 +49,6 @@ const LoginBoxed = () => {
   const [flag, setFlag] = useState(themeConfig.locale);
   const submitForm = (event: any) => {
     // navigate('/');
-    console.log("import.meta.env", import.meta.env);
     event.preventDefault();
     setIsLoading(true);
     let data = JSON.stringify(formData);

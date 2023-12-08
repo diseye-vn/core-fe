@@ -6,6 +6,8 @@ import { useTranslation } from "react-i18next";
 import axios from "axios";
 import ImageUploading, { ImageListType } from "react-images-uploading";
 import IconX from "../components/Icon/IconX";
+import IconMultipleForwardRight from "../components/Icon/IconMultipleForwardRight";
+import HeaderImage from "../components/header";
 
 const Index = () => {
   const [images2, setImages2] = useState<any>([]);

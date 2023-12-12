@@ -64,7 +64,7 @@ const Index = () => {
   const { t, i18n } = useTranslation();
 
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [isLoadingUpload, setIsLoadingUpload] = useState<boolean>(false);
+  const [isLoadingUpload, setIsLoadingUpload] = useState<boolean>(true);
 
   // const [rowData, setRowData] = useState<any>([]);
   const token = localStorage.getItem("token");

@@ -164,10 +164,10 @@ const History = () => {
                 accessor: "_id",
                 title: "Xem tài liệu",
                 titleClassName: "!text-center",
-                render: (id: { _id: string }) => (
+                render: (id: { _id: string, result: string }) => (
                   <div className="mx-auto flex w-max items-center">
-                    <Tippy content="Tải về">
-                      <a href={`edit/${id._id}`}>
+                    <Tippy content="Xem">
+                      <a href={  import.meta.env.VITE_HOST + "/file/view/" + id.result}>
                         <IconDownload />
                       </a>
                     </Tippy>

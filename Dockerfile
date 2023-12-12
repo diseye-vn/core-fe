@@ -1,7 +1,5 @@
-# Base image
-
-# Add your instructions here
-FROM node:18.19-slim
+# Stage 1: Build the Node.js application
+FROM node:18.19-slim as build-stage
 
 # Set working directory
 WORKDIR /app
@@ -15,11 +13,20 @@ RUN npm install
 # Copy project files
 COPY . .
 
+# Set the VITE_HOST environment variable
+ENV VITE_HOST="https://debe.uom.vn"
+
 # Build the project
 RUN npm run build
 
-# Expose the port
-EXPOSE 5173
+# Stage 2: Set up Nginx to serve the built files
+FROM nginx:alpine
 
-# Start the application
-CMD ["npm", "run", "prod"]
+# Copy the built files from the build stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Expose the port Nginx is running on
+EXPOSE 80
+
+# Start Nginx and keep it running in the foreground
+CMD ["nginx", "-g", "daemon off;"]
